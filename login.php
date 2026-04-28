@@ -70,7 +70,7 @@ $registered = isset($_GET['registered']);
         <p class="auth-error"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
-    <form method="POST" action="login.php" class="auth-form">
+    <form method="POST" action="login.php" class="auth-form" id="form-login" novalidate>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email"
@@ -92,5 +92,6 @@ $registered = isset($_GET['registered']);
     </p>
 </div>
 
+<script src="validation.js"></script>
 </body>
 </html>
