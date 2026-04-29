@@ -1,11 +1,9 @@
 <?php
-// header.php — Member 2 | Task 6
-// Shared navbar — includes username, cart item count, logout button
 
 if (session_status() === PHP_SESSION_NONE) session_start();
 
-// Count total items using shared session contract: $_SESSION['cart'][id]['qty']
 $cartCount = 0;
+
 if (!empty($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $item) {
         $cartCount += (int)$item['quantity'];
@@ -13,7 +11,7 @@ if (!empty($_SESSION['cart'])) {
 }
 
 $currentPage = basename($_SERVER['PHP_SELF']);
-$userName    = $_SESSION['user']['name'] ?? 'Invité';
+$userName = $_SESSION['user']['name'] ?? 'Invité';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,19 +28,15 @@ $userName    = $_SESSION['user']['name'] ?? 'Invité';
 <header class="site-header">
     <nav class="navbar">
 
-        <!-- Logo -->
         <a href="index.php" class="nav-logo">
             <span class="logo-icon">⬡</span>
             <span class="logo-text">Tech<strong>Shop</strong></span>
         </a>
 
-        <!-- Right side -->
         <div class="nav-right">
 
-            <!-- Logged-in username -->
             <span class="nav-username">👤 <?= htmlspecialchars($userName) ?></span>
 
-            <!-- Cart link with item count badge -->
             <a href="cart.php" class="nav-link <?= $currentPage === 'cart.php' ? 'active' : '' ?>">
                 🛒 Panier
                 <?php if ($cartCount > 0): ?>
@@ -50,14 +44,12 @@ $userName    = $_SESSION['user']['name'] ?? 'Invité';
                 <?php endif; ?>
             </a>
 
-            <!-- Logout -->
             <a href="logout.php" class="btn btn-logout">Déconnexion</a>
 
         </div>
     </nav>
 </header>
 
-<!-- Flash message zone -->
 <?php if (!empty($_SESSION['flash'])): ?>
     <div class="flash-message flash-<?= htmlspecialchars($_SESSION['flash']['type']) ?>">
         <?= htmlspecialchars($_SESSION['flash']['message']) ?>

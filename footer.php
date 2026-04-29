@@ -1,5 +1,5 @@
 <?php
-// footer.php — Shared footer
+
 ?>
 </main>
 

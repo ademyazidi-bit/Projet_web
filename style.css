@@ -1,24 +1,17 @@
-/* ============================================================
-   style.css — Member 4
-   Projet TechShop — Styles généraux
-   ============================================================ */
-
-/* ── Variables de couleurs ─────────────────────────────────── */
 :root {
-    --couleur-principale: #2563eb;   /* bleu principal */
-    --couleur-hover:      #1d4ed8;   /* bleu foncé au survol */
-    --couleur-danger:     #dc2626;   /* rouge pour supprimer */
-    --couleur-succes:     #16a34a;   /* vert pour succès */
-    --couleur-fond:       #f1f5f9;   /* fond gris clair */
-    --couleur-blanc:      #ffffff;
-    --couleur-texte:      #1e293b;   /* texte foncé */
-    --couleur-texte-clair:#64748b;   /* texte gris */
-    --couleur-bordure:    #e2e8f0;   /* bordures */
-    --ombre:              0 2px 8px rgba(0,0,0,0.10);
-    --rayon:              10px;
+    --couleur-principale: #2563eb;
+    --couleur-hover: #1d4ed8;
+    --couleur-danger: #dc2626;
+    --couleur-succes: #16a34a;
+    --couleur-fond: #f1f5f9;
+    --couleur-blanc: #ffffff;
+    --couleur-texte: #1e293b;
+    --couleur-texte-clair: #64748b;
+    --couleur-bordure: #e2e8f0;
+    --ombre: 0 2px 8px rgba(0,0,0,0.10);
+    --rayon: 10px;
 }
 
-/* ── Reset de base ─────────────────────────────────────────── */
 * {
     margin: 0;
     padding: 0;
@@ -42,9 +35,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ============================================================
-   HEADER / NAVBAR
-   ============================================================ */
 .site-header {
     background-color: var(--couleur-blanc);
     border-bottom: 1px solid var(--couleur-bordure);
@@ -64,7 +54,6 @@ a:hover {
     justify-content: space-between;
 }
 
-/* Logo */
 .nav-logo {
     display: flex;
     align-items: center;
@@ -72,7 +61,6 @@ a:hover {
     font-family: 'Syne', sans-serif;
     font-size: 20px;
     color: var(--couleur-texte);
-    text-decoration: none;
 }
 
 .logo-icon {
@@ -84,7 +72,6 @@ a:hover {
     color: var(--couleur-principale);
 }
 
-/* Partie droite de la navbar */
 .nav-right {
     display: flex;
     align-items: center;
@@ -102,17 +89,13 @@ a:hover {
     font-weight: 500;
     padding: 6px 12px;
     border-radius: 6px;
-    position: relative;
-    text-decoration: none;
 }
 
 .nav-link:hover,
 .nav-link.active {
     background-color: var(--couleur-fond);
-    text-decoration: none;
 }
 
-/* Badge panier */
 .cart-badge {
     background-color: var(--couleur-principale);
     color: white;
@@ -127,7 +110,6 @@ a:hover {
     margin-left: 4px;
 }
 
-/* Bouton déconnexion */
 .btn-logout {
     background-color: transparent;
     border: 1px solid var(--couleur-bordure);
@@ -135,27 +117,18 @@ a:hover {
     padding: 6px 14px;
     border-radius: 6px;
     font-size: 14px;
-    cursor: pointer;
-    text-decoration: none;
 }
 
 .btn-logout:hover {
     background-color: var(--couleur-fond);
-    text-decoration: none;
 }
 
-/* ============================================================
-   CONTENU PRINCIPAL
-   ============================================================ */
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 32px 24px;
 }
 
-/* ============================================================
-   MESSAGES FLASH (succès / erreur)
-   ============================================================ */
 .flash-message {
     max-width: 1200px;
     margin: 12px auto 0;
@@ -177,9 +150,6 @@ a:hover {
     border: 1px solid #fecaca;
 }
 
-/* ============================================================
-   BOUTONS
-   ============================================================ */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -189,19 +159,12 @@ a:hover {
     cursor: pointer;
     border: none;
     transition: background-color 0.2s, transform 0.1s;
-    text-decoration: none;
 }
 
 .btn:hover {
     transform: translateY(-1px);
-    text-decoration: none;
 }
 
-.btn:active {
-    transform: translateY(0);
-}
-
-/* Bouton principal (bleu) */
 .btn-primary {
     background-color: var(--couleur-principale);
     color: white;
@@ -209,22 +172,13 @@ a:hover {
 
 .btn-primary:hover {
     background-color: var(--couleur-hover);
-    color: white;
 }
 
-/* Bouton secondaire (gris) */
 .btn-secondary {
     background-color: var(--couleur-fond);
-    color: var(--couleur-texte);
     border: 1px solid var(--couleur-bordure);
 }
 
-.btn-secondary:hover {
-    background-color: var(--couleur-bordure);
-    color: var(--couleur-texte);
-}
-
-/* Bouton danger (rouge) */
 .btn-danger {
     background-color: var(--couleur-danger);
     color: white;
@@ -232,61 +186,31 @@ a:hover {
     font-size: 13px;
 }
 
-.btn-danger:hover {
-    background-color: #b91c1c;
-    color: white;
-}
-
-/* Bouton quantité (+/-) */
 .btn-qty {
     background-color: var(--couleur-fond);
-    color: var(--couleur-texte);
     border: 1px solid var(--couleur-bordure);
     padding: 4px 10px;
     font-size: 16px;
     font-weight: 700;
-    border-radius: 6px;
-    cursor: pointer;
 }
 
-.btn-qty:hover {
-    background-color: var(--couleur-bordure);
-    transform: none;
-}
-
-/* Bouton désactivé */
 .btn-disabled {
     background-color: #cbd5e1;
     color: #94a3b8;
     cursor: not-allowed;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
-    width: 100%;
 }
 
-/* Bouton pleine largeur */
 .btn-full {
     width: 100%;
-    text-align: center;
 }
 
-/* ============================================================
-   PAGES AUTH (login.php + register.php)
-   ============================================================ */
-
-/* Fond centré pour les pages de connexion */
 .auth-body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--couleur-fond);
 }
 
-/* Carte blanche centrée */
 .auth-card {
     background-color: var(--couleur-blanc);
     border: 1px solid var(--couleur-bordure);
@@ -297,83 +221,59 @@ a:hover {
     max-width: 420px;
 }
 
-/* Logo dans la carte auth */
 .auth-logo {
     display: flex;
-    align-items: center;
     justify-content: center;
     gap: 8px;
     font-family: 'Syne', sans-serif;
     font-size: 22px;
-    color: var(--couleur-texte);
     margin-bottom: 20px;
 }
 
-/* Titre de la page auth */
 .auth-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
     text-align: center;
+    font-size: 22px;
     margin-bottom: 24px;
-    color: var(--couleur-texte);
 }
 
-/* Message d'erreur auth */
 .auth-error {
     background-color: #fee2e2;
     color: var(--couleur-danger);
     border: 1px solid #fecaca;
-    border-radius: 8px;
     padding: 10px 14px;
     font-size: 13px;
     margin-bottom: 16px;
     text-align: center;
 }
 
-/* Message de succès auth */
 .auth-success {
     background-color: #dcfce7;
     color: var(--couleur-succes);
     border: 1px solid #bbf7d0;
-    border-radius: 8px;
     padding: 10px 14px;
     font-size: 13px;
     margin-bottom: 16px;
     text-align: center;
 }
 
-/* Formulaire auth */
 .auth-form {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-/* Groupe champ + label */
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.form-group label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--couleur-texte);
-}
-
-/* Champs de saisie */
 .form-group input {
     padding: 10px 14px;
     border: 1px solid var(--couleur-bordure);
     border-radius: 8px;
     font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--couleur-texte);
     background-color: var(--couleur-fond);
-    transition: border-color 0.2s;
-    outline: none;
 }
 
 .form-group input:focus {
@@ -381,7 +281,6 @@ a:hover {
     background-color: white;
 }
 
-/* Lien bas de page auth */
 .auth-switch {
     text-align: center;
     font-size: 13px;
@@ -389,101 +288,64 @@ a:hover {
     margin-top: 20px;
 }
 
-/* ============================================================
-   INDEX — GRILLE DE PRODUITS
-   ============================================================ */
-
-/* En-tête de section */
-.section-header {
-    margin-bottom: 28px;
-}
-
 .section-title {
-    font-family: 'Syne', sans-serif;
     font-size: 26px;
     font-weight: 700;
-    color: var(--couleur-texte);
 }
 
 .section-subtitle {
     font-size: 14px;
     color: var(--couleur-texte-clair);
-    margin-top: 4px;
 }
 
-/* Grille des produits — 4 colonnes sur grand écran */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 24px;
 }
 
-/* Carte produit */
 .product-card {
     background-color: var(--couleur-blanc);
     border: 1px solid var(--couleur-bordure);
     border-radius: var(--rayon);
     box-shadow: var(--ombre);
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-/* Carte produit en rupture de stock */
 .product-card.out-of-stock {
     opacity: 0.6;
 }
 
-/* Image du produit */
 .product-image-wrap {
-    width: 100%;
     height: 180px;
     overflow: hidden;
-    background-color: var(--couleur-fond);
 }
 
 .product-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
 }
 
-.product-card:hover .product-image {
-    transform: scale(1.05);
-}
-
-/* Infos produit */
 .product-info {
     padding: 14px 16px 8px;
-    flex-grow: 1;
 }
 
 .product-name {
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--couleur-texte);
 }
 
 .product-price {
     font-size: 17px;
     font-weight: 700;
     color: var(--couleur-principale);
-    margin-bottom: 4px;
 }
 
-/* Labels de stock */
 .stock-label {
     font-size: 12px;
     font-weight: 600;
-    margin-top: 4px;
 }
 
 .stock-label.out {
@@ -491,129 +353,47 @@ a:hover {
 }
 
 .stock-label.low {
-    color: #d97706; /* orange */
+    color: #d97706;
 }
 
-/* Bouton ajouter au panier */
 .add-to-cart-form {
     padding: 0 16px 16px;
-}
-
-.add-to-cart-form .btn-primary {
-    width: 100%;
-    text-align: center;
-    font-size: 13px;
-    padding: 9px;
-}
-
-/* ============================================================
-   PANIER (cart.php)
-   ============================================================ */
-.cart-section {
-    /* hérite de .main-content */
-}
-
-/* Panier vide */
-.cart-empty {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--couleur-texte-clair);
-}
-
-.cart-empty p {
-    font-size: 17px;
-    margin-bottom: 20px;
-}
-
-/* Tableau du panier */
-.cart-table-wrap {
-    overflow-x: auto;  /* scroll horizontal sur mobile */
 }
 
 .cart-table {
     width: 100%;
     border-collapse: collapse;
     background-color: var(--couleur-blanc);
-    border-radius: var(--rayon);
-    overflow: hidden;
-    box-shadow: var(--ombre);
-}
-
-.cart-table thead {
-    background-color: var(--couleur-principale);
-    color: white;
 }
 
 .cart-table th {
-    padding: 14px 18px;
-    text-align: left;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    background-color: var(--couleur-principale);
+    color: white;
+    padding: 14px;
 }
 
 .cart-table td {
-    padding: 14px 18px;
+    padding: 14px;
     border-bottom: 1px solid var(--couleur-bordure);
-    font-size: 14px;
-    vertical-align: middle;
 }
 
-.cart-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.cart-table tbody tr:hover {
-    background-color: #f8fafc;
-}
-
-/* Affichage de la quantité */
 .qty-display {
-    display: inline-block;
-    min-width: 30px;
-    text-align: center;
     font-weight: 700;
-    font-size: 15px;
+    min-width: 30px;
+    display: inline-block;
+    text-align: center;
 }
 
-/* Pied de tableau (total) */
-.cart-table tfoot td {
-    padding: 16px 18px;
-    font-size: 16px;
-    border-top: 2px solid var(--couleur-bordure);
-    background-color: #f8fafc;
-}
-
-/* Boutons en bas du panier */
 .cart-actions {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-top: 24px;
-    flex-wrap: wrap;
     gap: 12px;
 }
 
-/* ============================================================
-   CONFIRMATION (confirmation.php)
-   ============================================================ */
-.confirmation-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-}
-
 .confirmation-card {
-    background-color: var(--couleur-blanc);
-    border: 1px solid var(--couleur-bordure);
-    border-radius: 16px;
-    box-shadow: var(--ombre);
-    padding: 50px 40px;
     text-align: center;
-    max-width: 480px;
-    width: 100%;
+    padding: 50px 40px;
 }
 
 .confirmation-icon {
@@ -621,168 +401,30 @@ a:hover {
     margin-bottom: 16px;
 }
 
-.confirmation-card h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--couleur-texte);
-    margin-bottom: 12px;
-}
-
-.confirmation-card p {
-    font-size: 15px;
-    color: var(--couleur-texte-clair);
-    margin-bottom: 28px;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
 .site-footer {
-    background-color: var(--couleur-blanc);
-    border-top: 1px solid var(--couleur-bordure);
     text-align: center;
-    padding: 20px 24px;
+    padding: 20px;
     font-size: 13px;
     color: var(--couleur-texte-clair);
     margin-top: 60px;
 }
 
-/* ============================================================
-   RESPONSIVE — Tablette et mobile
-   ============================================================ */
 @media (max-width: 768px) {
-
-    /* Navbar */
-    .navbar {
-        height: auto;
-        padding: 12px 16px;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .nav-right {
-        flex-wrap: wrap;
-        gap: 10px;
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .nav-username {
-        display: none; /* cache le nom sur petit écran */
-    }
-
-    /* Auth card */
-    .auth-card {
-        padding: 28px 20px;
-        margin: 16px;
-    }
-
-    /* Grille produits — 2 colonnes */
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-
-    /* Panier */
-    .cart-table th,
-    .cart-table td {
-        padding: 10px 12px;
-        font-size: 13px;
+        display: none;
     }
 
     .cart-actions {
         flex-direction: column;
     }
-
-    .cart-actions .btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Confirmation */
-    .confirmation-card {
-        padding: 36px 20px;
-        margin: 16px;
-    }
 }
 
 @media (max-width: 480px) {
-    /* Grille produits — 1 colonne */
     .products-grid {
         grid-template-columns: 1fr;
     }
-
-    .main-content {
-        padding: 20px 16px;
-    }
-}
-
-/* ============================================================
-   JS FORM VALIDATION — error box & field states
-   ============================================================ */
-
-/* ── Error box (single top-of-form summary) ───────────────── */
-.js-error-box {
-    background-color: #fef2f2;
-    border: 1.5px solid var(--couleur-danger);
-    border-radius: var(--rayon);
-    padding: 14px 16px;
-    margin-bottom: 20px;
-    color: #991b1b;
-    font-size: 14px;
-
-    /* Entrée animée */
-    opacity: 0;
-    transform: translateY(-6px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.js-error-box--visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.js-error-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-
-.js-error-header svg {
-    flex-shrink: 0;
-    color: var(--couleur-danger);
-}
-
-.js-error-single {
-    margin: 0;
-    padding-left: 24px;
-}
-
-.js-error-list {
-    margin: 0;
-    padding-left: 24px;
-    line-height: 1.8;
-}
-
-.js-error-list li::marker {
-    color: var(--couleur-danger);
-}
-
-/* ── Input field states ───────────────────────────────────── */
-.auth-form input.field--error {
-    border-color: var(--couleur-danger);
-    background-color: #fff5f5;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
-}
-
-.auth-form input.field--valid {
-    border-color: var(--couleur-succes);
-    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.10);
-}
-
-.auth-form input.field--error:focus {
-    border-color: var(--couleur-danger);
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.20);
 }

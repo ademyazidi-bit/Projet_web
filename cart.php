@@ -1,6 +1,4 @@
 <?php
-// cart.php — Task 4
-// Login guard + display cart items + grand total + update/remove buttons
 
 if (session_status() === PHP_SESSION_NONE) session_start();
 
@@ -9,8 +7,9 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-$cart      = $_SESSION['cart'] ?? [];
+$cart = $_SESSION['cart'] ?? [];
 $grandTotal = 0;
+
 foreach ($cart as $item) {
     $grandTotal += $item['price'] * $item['quantity'];
 }
@@ -47,7 +46,6 @@ require_once 'header.php';
                             <td><?= htmlspecialchars($item['name']) ?></td>
                             <td><?= number_format($item['price'], 2) ?> TND</td>
                             <td>
-                                <!-- Decrease -->
                                 <form action="update_cart.php" method="POST" style="display:inline">
                                     <input type="hidden" name="product_id" value="<?= (int)$id ?>">
                                     <input type="hidden" name="action" value="decrease">
@@ -56,7 +54,6 @@ require_once 'header.php';
 
                                 <span class="qty-display"><?= (int)$item['quantity'] ?></span>
 
-                                <!-- Increase -->
                                 <form action="update_cart.php" method="POST" style="display:inline">
                                     <input type="hidden" name="product_id" value="<?= (int)$id ?>">
                                     <input type="hidden" name="action" value="increase">
@@ -65,7 +62,6 @@ require_once 'header.php';
                             </td>
                             <td><?= number_format($subtotal, 2) ?> TND</td>
                             <td>
-                                <!-- Remove -->
                                 <form action="remove_from_cart.php" method="POST" style="display:inline">
                                     <input type="hidden" name="product_id" value="<?= (int)$id ?>">
                                     <button type="submit" class="btn btn-danger"

@@ -1,10 +1,8 @@
 <?php
-// register.php — Member 2 | Task 1
-// Registration form — calls registerUser() from auth_model.php
 
 if (session_status() === PHP_SESSION_NONE) session_start();
 
-// Already logged in → go to shop
+
 if (isset($_SESSION['user'])) {
     header('Location: index.php');
     exit();
@@ -33,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: login.php?registered=1');
             exit();
         } else {
-            $error = $result; // error message returned by registerUser()
+            $error = $result; 
         }
     }
 }
@@ -62,7 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="auth-error"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
-<form method="POST" action="register.php" class="auth-form" id="form-register" onsubmit="return validerInscription()">        <div class="form-group">
+<form method="POST" action="register.php" class="auth-form" id="form-register" onsubmit="return validerInscription()">  
+          <div class="form-group">
             <label for="name">Nom complet</label>
             <input type="text" id="name" name="name"
                    value="<?= htmlspecialchars($_POST['name'] ?? '') ?>"
