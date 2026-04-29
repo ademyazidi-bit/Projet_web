@@ -1,10 +1,7 @@
 <?php
-// login.php — Member 2 | Task 2
-// Login form — calls loginUser(), sets $_SESSION['user'] on success
 
 if (session_status() === PHP_SESSION_NONE) session_start();
 
-// Already logged in → go to shop
 if (isset($_SESSION['user'])) {
     header('Location: index.php');
     exit();
@@ -16,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once 'auth_model.php';
     require_once 'validation.php';
 
-    $email    = sanitize($_POST['email']    ?? '');
+    $email = sanitize($_POST['email'] ?? '');
     $password = sanitize($_POST['password'] ?? '');
 
     if (empty($email) || empty($password)) {
@@ -25,13 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Adresse email invalide.';
     } else {
         $user = loginUser($email, $password);
+
         if ($user) {
-            // Set session contract (shared structure)
             $_SESSION['user'] = [
                 'id'    => $user['id'],
                 'name'  => $user['name'],
                 'email' => $user['email']
             ];
+
             header('Location: index.php');
             exit();
         } else {
@@ -55,6 +53,7 @@ $registered = isset($_GET['registered']);
 <body class="auth-body">
 
 <div class="auth-card">
+
     <div class="auth-logo">
         <span class="logo-icon">⬡</span>
         <span class="logo-text">Tech<strong>Shop</strong></span>
@@ -70,7 +69,7 @@ $registered = isset($_GET['registered']);
         <p class="auth-error"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
-    <form method="POST" action="login.php" class="auth-form" id="form-login" novalidate>
+   <form method="POST" action="login.php" class="auth-form" id="form-login" onsubmit="return validerConnexion()">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email"
@@ -90,6 +89,7 @@ $registered = isset($_GET['registered']);
     <p class="auth-switch">
         Pas encore de compte ? <a href="register.php">S'inscrire</a>
     </p>
+
 </div>
 
 <script src="validation.js"></script>

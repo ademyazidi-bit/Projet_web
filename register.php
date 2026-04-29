@@ -62,8 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="auth-error"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
-    <form method="POST" action="register.php" class="auth-form" id="form-register" novalidate>
-        <div class="form-group">
+<form method="POST" action="register.php" class="auth-form" id="form-register" onsubmit="return validerInscription()">        <div class="form-group">
             <label for="name">Nom complet</label>
             <input type="text" id="name" name="name"
                    value="<?= htmlspecialchars($_POST['name'] ?? '') ?>"

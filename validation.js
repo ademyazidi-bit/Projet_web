@@ -1,85 +1,44 @@
-'use strict';
+function validerInscription() {
+  var nom = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var motdepasse = document.getElementById('password').value;
 
-/* Rules */
-const RULES = {
-  name: { required: true, min: 2 },
-  email: { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
-  password: { required: true, min: 6 }
-};
-
-/* Validate one field */
-function validate(name, value) {
-  value = value.trim();
-
-  if (RULES[name].required && value === '') {
-    return name + ' est obligatoire';
+  if (nom === '') {
+    alert('Le nom est obligatoire');
+    return false;
   }
 
-  if (RULES[name].min && value.length < RULES[name].min) {
-    return name + ' trop court';
+  if (email === '') {
+    alert('L email est obligatoire');
+    return false;
   }
 
-  if (RULES[name].pattern && !RULES[name].pattern.test(value)) {
-    return 'email invalide';
+  if (motdepasse === '') {
+    alert('Le mot de passe est obligatoire');
+    return false;
   }
 
-  return null;
-}
-
-/* Mark input */
-function mark(input, error) {
-  if (error) {
-    input.classList.add('field--error');
-  } else {
-    input.classList.remove('field--error');
+  if (motdepasse.length < 6) {
+    alert('Le mot de passe doit avoir au moins 6 caractères');
+    return false;
   }
+
+  return true;
 }
 
-/* Show errors */
-function showErrors(form, errors) {
-  let box = form.querySelector('.error-box');
-  if (box) box.remove();
+function validerConnexion() {
+  var email = document.getElementById('email').value;
+  var motdepasse = document.getElementById('password').value;
 
-  if (errors.length === 0) return;
+  if (email === '') {
+    alert('L email est obligatoire');
+    return false;
+  }
 
-  box = document.createElement('div');
-  box.className = 'error-box';
+  if (motdepasse === '') {
+    alert('Le mot de passe est obligatoire');
+    return false;
+  }
 
-  errors.forEach(function (e) {
-    let p = document.createElement('p');
-    p.textContent = e;
-    box.appendChild(p);
-  });
-
-  form.prepend(box);
+  return true;
 }
-
-/* Init form */
-function initForm(formId, fields) {
-  let form = document.getElementById(formId);
-  if (!form) return;
-
-  form.addEventListener('submit', function (e) {
-    let errors = [];
-
-    fields.forEach(function (name) {
-      let input = form.querySelector('[name="' + name + '"]');
-      let err = validate(name, input.value);
-
-      mark(input, err);
-
-      if (err) errors.push(err);
-    });
-
-    if (errors.length > 0) {
-      e.preventDefault();
-      showErrors(form, errors);
-    }
-  });
-}
-
-/* Start */
-document.addEventListener('DOMContentLoaded', function () {
-  initForm('form-register', ['name', 'email', 'password']);
-  initForm('form-login', ['email', 'password']);
-});
