@@ -37,7 +37,7 @@ require_once 'header.php';
                         <th>Quantité</th>
                         <th>Sous-total</th>
                         <th>Action</th>
-                    </tr>
+                    </tr
                 </thead>
                 <tbody>
                     <?php foreach ($cart as $id => $item): ?>
